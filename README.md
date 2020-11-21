@@ -1,4 +1,4 @@
-Event Utelity
+Event Utility
 =============
 
 Utility of native event listener implementation.
