@@ -1,4 +1,4 @@
-Event Utility
+Event Utelity
 =============
 
 Utility of native event listener implementation.
@@ -84,6 +84,16 @@ import {events} from '@taufik-nurrohman/event';
 console.log(events);
 ~~~
 
+### fireEvent(name | names, node)
+
+~~~ js
+import {fireEvent} from '@taufik-nurrohman/event';
+
+onEvent('DOMContentLoaded', document, event => {
+    fireEvent('ready', event);
+});
+~~~
+
 ### offEvent(name | names, node, fn)
 
 ~~~ js
@@ -102,14 +112,4 @@ function onDocumentReady() {
 }
 
 onEvent('ready', document, onDocumentReady);
-~~~
-
-### fireEvent(name | names, node)
-
-~~~ js
-import {fireEvent} from '@taufik-nurrohman/event';
-
-onEvent('DOMContentLoaded', document, event => {
-    fireEvent('ready', event);
-});
 ~~~
