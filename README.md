@@ -1,0 +1,115 @@
+Event Utility
+=============
+
+Utility of native event listener implementation.
+
+Usage
+-----
+
+### Browser
+
+~~~ html
+<script src="./@taufik-nurrohman/event/index.js"></script>
+<script>
+onEvent('resize', window, e => {
+    console.log([
+        window.innerHeight,
+        window.innerWidth
+    ]);
+});
+</script>
+~~~
+
+### Browser Module
+
+~~~ html
+<script type="module">
+import {onEvent} from './@taufik-nurrohman/event/index.mjs';
+
+onEvent('resize', window, e => {
+    console.log([
+        window.innerHeight,
+        window.innerWidth
+    ]);
+});
+</script>
+~~~
+
+### CommonJS Module
+
+~~~ js
+const {onEvent} = require('@taufik-nurrohman/event');
+
+onEvent('resize', window, e => {
+    console.log([
+        window.innerHeight,
+        window.innerWidth
+    ]);
+});
+~~~
+
+### ECMAScript Module
+
+~~~ js
+import {onEvent} from '@taufik-nurrohman/event';
+
+onEvent('resize', window, e => {
+    console.log([
+        window.innerHeight,
+        window.innerWidth
+    ]);
+});
+~~~
+
+Methods
+-------
+
+### event(name)
+
+Create custom events with unique name. Duplicate event names will be ignored.
+
+~~~ js
+import {event} from '@taufik-nurrohman/event';
+
+let readyEvent = event('ready');
+~~~
+
+### events
+
+List of custom events created by `event`.
+
+~~~ js
+import {events} from '@taufik-nurrohman/event';
+
+console.log(events);
+~~~
+
+### offEvent(name | names, node, fn)
+
+~~~ js
+import {offEvent} from '@taufik-nurrohman/event';
+
+offEvent('ready', document, onDocumentReady);
+~~~
+
+### onEvent(name | names, node, fn)
+
+~~~ js
+import {onEvent} from '@taufik-nurrohman/event';
+
+function onDocumentReady() {
+    console.log('Document is ready!');
+}
+
+onEvent('ready', document, onDocumentReady);
+~~~
+
+### fireEvent(name | names, node)
+
+~~~ js
+import {fireEvent} from '@taufik-nurrohman/event';
+
+onEvent('DOMContentLoaded', document, event => {
+    fireEvent('ready', event);
+});
+~~~

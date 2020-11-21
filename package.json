@@ -1,0 +1,38 @@
+{
+  "name": "@taufik-nurrohman/event",
+  "description": "Utility of native event listener implementation.",
+  "version": "0.0.1",
+  "main": "index.js",
+  "exports": {
+    "import": "./index.mjs",
+    "require": "./index.js"
+  },
+  "files": [
+    "index.js",
+    "index.mjs"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "@taufik-nurrohman/from": ">=0.0.1",
+    "@taufik-nurrohman/is": ">=0.0.4",
+    "@taufik-nurrohman/to": ">=0.0.4"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/taufik-nurrohman/event.git"
+  },
+  "keywords": [
+    "event",
+    "helper",
+    "native",
+    "utility"
+  ],
+  "author": "Taufik Nurrohman",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/taufik-nurrohman/event/issues"
+  },
+  "homepage": "https://taufik-nurrohman.github.io"
+}
