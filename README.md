@@ -64,7 +64,7 @@ onEvent('resize', window, e => {
 Methods
 -------
 
-### event(name)
+### event(name, opt = {})
 
 Create custom events with unique name. Duplicate event names will be ignored.
 

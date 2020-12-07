@@ -5,11 +5,11 @@
     const {isSet} = require('@taufik-nurrohman/is');
     const {toArray} = require('@taufik-nurrohman/to');
     const events = {};
-    const event = name => {
+    const event = (name, opt = {}) => {
         if (isSet(events[name])) {
             return events[name];
         }
-        return (events[name] = new Event(name));
+        return (events[name] = new Event(name, opt));
     };
     const fireEvent = (names, node) => {
         let out = [];

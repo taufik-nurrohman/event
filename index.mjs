@@ -4,11 +4,11 @@ import {toArray} from '@taufik-nurrohman/to';
 
 export const events = {};
 
-export const event = name => {
+export const event = (name, opt = {}) => {
     if (isSet(events[name])) {
         return events[name];
     }
-    return (events[name] = new Event(name));
+    return (events[name] = new Event(name, opt);
 };
 
 export const fireEvent = (names, node) => {
