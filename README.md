@@ -20,22 +20,7 @@ onEvent('resize', window, e => {
 </script>
 ~~~
 
-### Browser Module
-
-~~~ html
-<script type="module">
-import {onEvent} from './@taufik-nurrohman/event/index.mjs';
-
-onEvent('resize', window, e => {
-    console.log([
-        window.innerHeight,
-        window.innerWidth
-    ]);
-});
-</script>
-~~~
-
-### CommonJS Module
+### CommonJS
 
 ~~~ js
 const {onEvent} = require('@taufik-nurrohman/event');
@@ -48,7 +33,7 @@ onEvent('resize', window, e => {
 });
 ~~~
 
-### ECMAScript Module
+### ECMAScript
 
 ~~~ js
 import {onEvent} from '@taufik-nurrohman/event';
