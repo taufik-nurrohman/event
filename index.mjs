@@ -8,7 +8,7 @@ export const event = (name, opt = {}) => {
     if (isSet(events[name])) {
         return events[name];
     }
-    return (events[name] = new Event(name, opt);
+    return (events[name] = new Event(name, opt));
 };
 
 export const fireEvent = (names, node) => {
