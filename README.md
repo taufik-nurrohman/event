@@ -6,26 +6,12 @@ Utility of native event listener implementation.
 Usage
 -----
 
-### Browser
-
-~~~ html
-<script src="./@taufik-nurrohman/event/index.js"></script>
-<script>
-onEvent('resize', window, e => {
-    console.log([
-        window.innerHeight,
-        window.innerWidth
-    ]);
-});
-</script>
-~~~
-
 ### CommonJS
 
 ~~~ js
-const {onEvent} = require('@taufik-nurrohman/event');
+const {on} = require('@taufik-nurrohman/event');
 
-onEvent('resize', window, e => {
+on('resize', window, e => {
     console.log([
         window.innerHeight,
         window.innerWidth
@@ -36,9 +22,9 @@ onEvent('resize', window, e => {
 ### ECMAScript
 
 ~~~ js
-import {onEvent} from '@taufik-nurrohman/event';
+import {on} from '@taufik-nurrohman/event';
 
-onEvent('resize', window, e => {
+on('resize', window, e => {
     console.log([
         window.innerHeight,
         window.innerWidth
@@ -49,13 +35,11 @@ onEvent('resize', window, e => {
 Methods
 -------
 
-### event(name, opt = {})
+### event(name, options = {})
 
 Create custom events with unique name. Duplicate event names will be ignored.
 
 ~~~ js
-import {event} from '@taufik-nurrohman/event';
-
 let readyEvent = event('ready');
 ~~~
 
@@ -64,37 +48,29 @@ let readyEvent = event('ready');
 List of custom events created by `event`.
 
 ~~~ js
-import {events} from '@taufik-nurrohman/event';
-
 console.log(events);
 ~~~
 
-### fireEvent(name | names, node)
+### fire(event, node)
 
 ~~~ js
-import {fireEvent} from '@taufik-nurrohman/event';
-
-onEvent('DOMContentLoaded', document, event => {
-    fireEvent('ready', event);
+on('DOMContentLoaded', document, event => {
+    fire('ready', event);
 });
 ~~~
 
-### offEvent(name | names, node, fn)
+### off(event, node, then)
 
 ~~~ js
-import {offEvent} from '@taufik-nurrohman/event';
-
-offEvent('ready', document, onDocumentReady);
+off('ready', document, onDocumentReady);
 ~~~
 
-### onEvent(name | names, node, fn)
+### on(event, node, then, options = false)
 
 ~~~ js
-import {onEvent} from '@taufik-nurrohman/event';
-
 function onDocumentReady() {
     console.log('Document is ready!');
 }
 
-onEvent('ready', document, onDocumentReady);
+on('ready', document, onDocumentReady);
 ~~~

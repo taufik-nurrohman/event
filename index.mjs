@@ -1,28 +1,22 @@
-import {fromArray} from '@taufik-nurrohman/from';
 import {isSet} from '@taufik-nurrohman/is';
-import {toArray} from '@taufik-nurrohman/to';
 
-export const events = {};
-
-export const event = (name, opt = {}) => {
+export const event = (name, options = {}) => {
     if (isSet(events[name])) {
         return events[name];
     }
-    return (events[name] = new Event(name, opt));
+    return (events[name] = new Event(name, options));
 };
 
-export const fireEvent = (names, node) => {
-    let out = [];
-    toArray(names).forEach(name => {
-        out.push(node.dispatchEvent(event(name)));
-    });
-    return fromArray(out);
+export const events = {};
+
+export const fire = (name, node) => {
+    node.dispatchEvent(event(name));
 };
 
-export const offEvent = (names, node, fn) => {
-    toArray(names).forEach(name => node.removeEventListener(name, fn));
+export const off = (name, node, then) => {
+    node.removeEventListener(name, then);
 };
 
-export const onEvent = (names, node, fn, options = false) => {
-    toArray(names).forEach(name => node.addEventListener(name, fn, options));
+export const on = (name, node, then, options = false) => {
+    node.addEventListener(name, then, options);
 };
