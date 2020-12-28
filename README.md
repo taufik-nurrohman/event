@@ -43,6 +43,10 @@ Create custom events with unique name. Duplicate event names will be ignored.
 let readyEvent = event('ready');
 ~~~
 
+### eventPreventDefault(event)
+
+### eventStopPropagation(event)
+
 ### events
 
 List of custom events created by `event`.

@@ -7,6 +7,9 @@ export const event = (name, options = {}) => {
     return (events[name] = new Event(name, options));
 };
 
+export const eventPreventDefault = e => e && e.preventDefault();
+export const eventStopPropagation = e => e && e.stopPropagation();
+
 export const events = {};
 
 export const fire = (name, node) => {

@@ -7,6 +7,9 @@ const event = (name, options = {}) => {
     return (events[name] = new Event(name, options));
 };
 
+const eventPreventDefault = e => e && e.preventDefault();
+const eventStopPropagation = e => e && e.stopPropagation();
+
 const events = {};
 
 const fire = (name, node) => {
@@ -23,6 +26,8 @@ const on = (name, node, then, options = false) => {
 
 Object.assign(exports || {}, {
     event,
+    eventPreventDefault,
+    eventStopPropagation,
     events,
     fire,
     off,
