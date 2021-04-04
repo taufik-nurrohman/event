@@ -9,9 +9,9 @@ Usage
 ### CommonJS
 
 ~~~ js
-const {on} = require('@taufik-nurrohman/event');
+const {onEvent} = require('@taufik-nurrohman/event');
 
-on('resize', window, e => {
+onEvent('resize', window, e => {
     console.log([
         window.innerHeight,
         window.innerWidth
@@ -22,9 +22,9 @@ on('resize', window, e => {
 ### ECMAScript
 
 ~~~ js
-import {on} from '@taufik-nurrohman/event';
+import {onEvent} from '@taufik-nurrohman/event';
 
-on('resize', window, e => {
+onEvent('resize', window, e => {
     console.log([
         window.innerHeight,
         window.innerWidth
@@ -43,10 +43,6 @@ Create custom events with unique name. Duplicate event names will be ignored.
 let readyEvent = event('ready');
 ~~~
 
-### eventPreventDefault(event)
-
-### eventStopPropagation(event)
-
 ### events
 
 List of custom events created by `event`.
@@ -55,26 +51,36 @@ List of custom events created by `event`.
 console.log(events);
 ~~~
 
-### fire(event, node)
+### fireEvent(event, node)
 
 ~~~ js
-on('DOMContentLoaded', document, event => {
-    fire('ready', event);
+onEvent('DOMContentLoaded', document, event => {
+    fireEvent('ready', event);
 });
 ~~~
 
-### off(event, node, then)
+### fireEvents(events, node)
+
+### offEvent(event, node, then)
 
 ~~~ js
-off('ready', document, onDocumentReady);
+offEvent('ready', document, onDocumentReady);
 ~~~
 
-### on(event, node, then, options = false)
+### offEventDefault(event)
+
+### offEventPropagation(event)
+
+### offEvents(events, node, then)
+
+### onEvent(event, node, then, options = false)
 
 ~~~ js
 function onDocumentReady() {
     console.log('Document is ready!');
 }
 
-on('ready', document, onDocumentReady);
+onEvent('ready', document, onDocumentReady);
 ~~~
+
+### onEvents(events, node, then, options = false)

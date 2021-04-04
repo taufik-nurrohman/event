@@ -7,29 +7,44 @@ const event = (name, options = {}) => {
     return (events[name] = new Event(name, options));
 };
 
-const eventPreventDefault = e => e && e.preventDefault();
-const eventStopPropagation = e => e && e.stopPropagation();
-
 const events = {};
 
-const fire = (name, node) => {
+const fireEvent = (name, node) => {
     node.dispatchEvent(event(name));
 };
 
-const off = (name, node, then) => {
+const fireEvents = (names, node) => {
+    names.forEach(name => fireEvent(name, node));
+};
+
+const offEvent = (name, node, then) => {
     node.removeEventListener(name, then);
 };
 
-const on = (name, node, then, options = false) => {
+const offEventDefault = e => e && e.preventDefault();
+const offEventPropagation = e => e && e.stopPropagation();
+
+const offEvents = (names, node, then) => {
+    names.forEach(name => offEvent(name, node, then));
+};
+
+const onEvent = (name, node, then, options = false) => {
     node.addEventListener(name, then, options);
+};
+
+const onEvents = (names, node, then, options = false) => {
+    names.forEach(name => onEvent(name, then, options));
 };
 
 Object.assign(exports || {}, {
     event,
-    eventPreventDefault,
-    eventStopPropagation,
     events,
-    fire,
-    off,
-    on
+    fireEvent,
+    fireEvents,
+    offEvent,
+    offEventDefault,
+    offEventPropagation,
+    offEvents,
+    onEvent,
+    onEvents
 });
