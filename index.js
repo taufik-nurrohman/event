@@ -36,7 +36,7 @@ const onEvents = (names, node, then, options = false) => {
     names.forEach(name => onEvent(name, then, options));
 };
 
-Object.assign(exports || {}, {
+Object.assign(exports, {
     event,
     events,
     fireEvent,

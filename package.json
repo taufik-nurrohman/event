@@ -2,7 +2,7 @@
   "author": "Taufik Nurrohman",
   "bugs": "https://github.com/taufik-nurrohman/event/issues",
   "dependencies": {
-    "@taufik-nurrohman/is": ">=0.1.0"
+    "@taufik-nurrohman/is": ">=0.1.1"
   },
   "description": "Utility of native event listener implementation.",
   "exports": {
@@ -27,5 +27,5 @@
     "type": "git",
     "url": "git+https://github.com/taufik-nurrohman/event.git"
   },
-  "version": "0.2.0"
+  "version": "0.2.1"
 }
