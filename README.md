@@ -37,7 +37,7 @@ Methods
 
 ### event(name, options = {}, cache = false)
 
-Create custom events with unique name. Duplicate event names will be ignored.
+Create custom events with unique name.
 
 ~~~ js
 let readyEvent = event('ready');
