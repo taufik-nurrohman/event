@@ -1,7 +1,7 @@
 const {isSet} = require('@taufik-nurrohman/is');
 
-const event = (name, options = {}) => {
-    if (isSet(events[name])) {
+const event = (name, options = {}, cache = false) => {
+    if (cache && isSet(events[name])) {
         return events[name];
     }
     return (events[name] = new Event(name, options));

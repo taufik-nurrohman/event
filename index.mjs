@@ -1,7 +1,7 @@
 import {isSet} from '@taufik-nurrohman/is';
 
-export const event = (name, options = {}) => {
-    if (isSet(events[name])) {
+export const event = (name, options = {}, cache = false) => {
+    if (cache && isSet(events[name])) {
         return events[name];
     }
     return (events[name] = new Event(name, options));

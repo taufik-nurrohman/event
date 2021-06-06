@@ -35,7 +35,7 @@ onEvent('resize', window, e => {
 Methods
 -------
 
-### event(name, options = {})
+### event(name, options = {}, cache = false)
 
 Create custom events with unique name. Duplicate event names will be ignored.
 
@@ -45,7 +45,7 @@ let readyEvent = event('ready');
 
 ### events
 
-List of custom events created by `event`.
+List of custom events cache created by `event`.
 
 ~~~ js
 console.log(events);
