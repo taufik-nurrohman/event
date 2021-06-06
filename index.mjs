@@ -1,6 +1,6 @@
 import {isSet} from '@taufik-nurrohman/is';
 
-export const event = (name, options = {}, cache = false) => {
+export const event = (name, options, cache) => {
     if (cache && isSet(events[name])) {
         return events[name];
     }
@@ -9,12 +9,12 @@ export const event = (name, options = {}, cache = false) => {
 
 export const events = {};
 
-export const fireEvent = (name, node) => {
-    node.dispatchEvent(event(name));
+export const fireEvent = (name, node, options, cache) => {
+    node.dispatchEvent(event(name, options, cache));
 };
 
-export const fireEvents = (names, node) => {
-    names.forEach(name => fireEvent(name, node));
+export const fireEvents = (names, node, options, cache) => {
+    names.forEach(name => fireEvent(name, node, options, cache));
 };
 
 export const offEvent = (name, node, then) => {
@@ -22,6 +22,7 @@ export const offEvent = (name, node, then) => {
 };
 
 export const offEventDefault = e => e && e.preventDefault();
+export const offEventImmediatePropagation = e => e && e.stopImmediatePropagation();
 export const offEventPropagation = e => e && e.stopPropagation();
 
 export const offEvents = (names, node, then) => {

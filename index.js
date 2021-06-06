@@ -1,6 +1,6 @@
 const {isSet} = require('@taufik-nurrohman/is');
 
-const event = (name, options = {}, cache = false) => {
+const event = (name, options, cache) => {
     if (cache && isSet(events[name])) {
         return events[name];
     }
@@ -9,12 +9,12 @@ const event = (name, options = {}, cache = false) => {
 
 const events = {};
 
-const fireEvent = (name, node) => {
-    node.dispatchEvent(event(name));
+const fireEvent = (name, node, options, cache) => {
+    node.dispatchEvent(event(name, options, cache));
 };
 
-const fireEvents = (names, node) => {
-    names.forEach(name => fireEvent(name, node));
+const fireEvents = (names, node, options, cache) => {
+    names.forEach(name => fireEvent(name, node, options, cache));
 };
 
 const offEvent = (name, node, then) => {
@@ -22,6 +22,7 @@ const offEvent = (name, node, then) => {
 };
 
 const offEventDefault = e => e && e.preventDefault();
+const offEventImmediatePropagation = e => e && e.stopImmediatePropagation();
 const offEventPropagation = e => e && e.stopPropagation();
 
 const offEvents = (names, node, then) => {
@@ -43,6 +44,7 @@ Object.assign(exports, {
     fireEvents,
     offEvent,
     offEventDefault,
+    offEventImmediatePropagation,
     offEventPropagation,
     offEvents,
     onEvent,

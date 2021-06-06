@@ -51,7 +51,7 @@ List of custom events cache created by `event`.
 console.log(events);
 ~~~
 
-### fireEvent(event, node)
+### fireEvent(event, node, options = {}, cache = false)
 
 ~~~ js
 onEvent('DOMContentLoaded', document, event => {
@@ -59,7 +59,7 @@ onEvent('DOMContentLoaded', document, event => {
 });
 ~~~
 
-### fireEvents(events, node)
+### fireEvents(events, node, options = {}, cache = false)
 
 ### offEvent(event, node, then)
 
@@ -68,6 +68,8 @@ offEvent('ready', document, onDocumentReady);
 ~~~
 
 ### offEventDefault(event)
+
+### offEventImmediatePropagation(event)
 
 ### offEventPropagation(event)
 
