@@ -55,7 +55,7 @@ console.log(events);
 
 ~~~ js
 onEvent('DOMContentLoaded', document, event => {
-    fireEvent('ready', event);
+    fireEvent('ready', document);
 });
 ~~~
 
